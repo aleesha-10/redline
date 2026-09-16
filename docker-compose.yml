@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: redline_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: redline
+      POSTGRES_PASSWORD: redline
+      POSTGRES_DB: redline
+    ports:
+      - "5432:5432"
+    volumes:
+      - redline_pgdata:/var/lib/postgresql/data
+
+volumes:
+  redline_pgdata:

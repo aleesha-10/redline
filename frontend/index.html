@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Redline — Contract Clause Risk Checker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>Redline</h1>
+    <p class="subtitle">Paste a contract clause. Redline reconciles a semantic
+      similarity check against a real risky-clause corpus with a rule-based
+      red-flag scan, and tells you when the two disagree.</p>
+
+    <textarea id="clause-input" rows="6"
+      placeholder="e.g. The Vendor shall have unlimited liability for any breach of this Agreement..."></textarea>
+
+    <button id="check-btn">Check risk</button>
+
+    <div id="result" class="result hidden">
+      <div class="risk-badge" id="risk-badge"></div>
+
+      <div class="signal-grid">
+        <div class="signal-card">
+          <h3>Semantic signal</h3>
+          <p><strong>Closest category:</strong> <span id="semantic-category">—</span></p>
+          <p><strong>Similarity:</strong> <span id="semantic-similarity">—</span></p>
+        </div>
+        <div class="signal-card">
+          <h3>Heuristic signal</h3>
+          <p><strong>Flags:</strong> <span id="heuristic-flags">—</span></p>
+          <p><strong>Severity:</strong> <span id="heuristic-severity">—</span></p>
+        </div>
+      </div>
+
+      <p><strong>Confidence:</strong> <span id="confidence">—</span></p>
+      <div id="disagreement-warning" class="warning hidden">
+        ⚠️ Signals disagree — manual review recommended.
+      </div>
+    </div>
+
+    <div id="error" class="error hidden"></div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
