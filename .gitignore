@@ -1,0 +1,56 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- Environment / secrets ---
+.env
+.env.*
+!.env.example
+
+# --- Testing / caching ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+.coverage.*
+
+# --- Large / generated data (regenerate via the scripts, don't commit) ---
+data/cuad/*
+!data/cuad/.gitkeep
+data/index/*
+!data/index/.gitkeep
+
+# --- IDE / editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Docker ---
+*.pid
+
+# --- Node (only if you ever add frontend tooling) ---
+node_modules/
+npm-debug.log*
+
+# --- Logs ---
+*.log
+
+README2.md

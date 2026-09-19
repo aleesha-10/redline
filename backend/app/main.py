@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 
 from . import consensus, db, heuristics
 from .config import settings
@@ -39,6 +40,15 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="Redline", version=settings.VERSION, lifespan=lifespan)
+
+# Allows the standalone frontend (opened as a local file, or served from a
+# different port during development) to call this API from the browser.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/health")
